@@ -98,4 +98,26 @@ describe('Aplikacja Express - Testy', () => {
             expect(response.body).toHaveProperty('error', 'Endpoint not found');
         });
     });
+
+    describe('GET /api/status', () => {
+        test('powinien zwrócić status aplikacji', async () => {
+            const response = await request(app)
+                .get('/api/status')
+                .expect(200);
+            
+            expect(response.body).toHaveProperty('status', 'running');
+            expect(response.body).toHaveProperty('timestamp');
+        });
+    });
+
+    describe('GET /api/info', () => {
+        test('powinien zwrócić informacje o aplikacji', async () => {
+            const response = await request(app)
+                .get('/api/info')
+                .expect(200);
+            
+            expect(response.body).toHaveProperty('app', 'Lab Projekt');
+            expect(response.body).toHaveProperty('status', 'active');
+        });
+    });
 }); 
