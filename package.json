@@ -1,0 +1,31 @@
+{
+  "name": "lab-projekt-zaliczenie",
+  "version": "1.0.0",
+  "description": "Projekt zaliczeniowy - aplikacja demonstrująca umiejętności Git/GitHub, workflow i CI/CD",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": ["express", "nodejs", "cicd", "git", "github"],
+  "author": "Eryk",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "supertest": "^6.3.0",
+    "nodemon": "^3.0.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "*.js",
+      "!app.js"
+    ]
+  }
+} 
