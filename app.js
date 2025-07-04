@@ -75,6 +75,14 @@ app.get('/about', (req, res) => {
     });
 });
 
+app.get('/api/status', (req, res) => {
+    res.json({
+        status: 'running',
+        environment: process.env.NODE_ENV || 'development',
+        timestamp: new Date().toISOString()
+    });
+});
+
 // 404 handler
 app.use('*', (req, res) => {
     res.status(404).json({ error: 'Endpoint not found' });
