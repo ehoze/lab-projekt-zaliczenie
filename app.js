@@ -75,6 +75,14 @@ app.get('/about', (req, res) => {
     });
 });
 
+app.get('/api/info', (req, res) => {
+    res.json({
+        app: 'Lab Projekt',
+        status: 'active',
+        lastUpdate: new Date().toISOString()
+    });
+});
+
 // 404 handler
 app.use('*', (req, res) => {
     res.status(404).json({ error: 'Endpoint not found' });
