@@ -75,11 +75,20 @@ app.get('/about', (req, res) => {
     });
 });
 
+
 app.get('/api/info', (req, res) => {
     res.json({
         app: 'Lab Projekt',
         status: 'active',
         lastUpdate: new Date().toISOString()
+    });
+});
+
+app.get('/api/status', (req, res) => {
+    res.json({
+        status: 'running',
+        environment: process.env.NODE_ENV || 'development',
+        timestamp: new Date().toISOString()
     });
 });
 
